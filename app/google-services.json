@@ -1,33 +1,42 @@
 {
   "project_info": {
-    "project_number": "1090642379192",
-    "project_id": "fir-chatapp-f2109",
-    "storage_bucket": "fir-chatapp-f2109.appspot.com"
+    "project_number": "320286798112",
+    "firebase_url": "https://fir-chatapp-ffcc6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "fir-chatapp-ffcc6",
+    "storage_bucket": "fir-chatapp-ffcc6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1090642379192:android:cf1349f734a90dc8608f4d",
+        "mobilesdk_app_id": "1:320286798112:android:b5130ede1c79b8c2dde745",
         "android_client_info": {
           "package_name": "com.khacvux.firebasechatapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1090642379192-p0qihoofmci9nod1arc3fmsar3hf5h7j.apps.googleusercontent.com",
+          "client_id": "320286798112-jm5pp3ov763vu1klvanbhptmd3fear6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.khacvux.firebasechatapp",
+            "certificate_hash": "894c5b915b374cac8c74519761efd7c0c0c4fe7c"
+          }
+        },
+        {
+          "client_id": "320286798112-5p7t3kb8ign2f5lsfjpsaubje09tnedb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBAHWCx97Zn8UitWjcCrfls84XzLkfpceQ"
+          "current_key": "AIzaSyDXezNl9MhTcBhOEJjjaGwkIUNTWC2mXcc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1090642379192-p0qihoofmci9nod1arc3fmsar3hf5h7j.apps.googleusercontent.com",
+              "client_id": "320286798112-5p7t3kb8ign2f5lsfjpsaubje09tnedb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
