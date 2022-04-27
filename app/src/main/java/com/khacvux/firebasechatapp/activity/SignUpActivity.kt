@@ -1,4 +1,4 @@
-package com.khacvux.firebasechatapp
+package com.khacvux.firebasechatapp.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.khacvux.firebasechatapp.R
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 
@@ -50,6 +51,11 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
 
+        btnLogin.setOnClickListener{
+            val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
 
 
 
@@ -76,8 +82,10 @@ class SignUpActivity : AppCompatActivity() {
 
                     databaseReference.setValue(hashMap).addOnCompleteListener(this){
                         if(it.isSuccessful){
+
                             //navigate to home screen
-                            val intent = Intent(this@SignUpActivity, HomeActivity::class.java)
+                            val intent = Intent(this@SignUpActivity,
+                                UsersActivity::class.java)
                             startActivity(intent)
                         }
                     }
