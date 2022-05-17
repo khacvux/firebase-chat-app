@@ -53,6 +53,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:20.1.2'
     implementation 'com.google.firebase:firebase-analytics-ktx:20.1.2'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.4'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
 
 
     //Material

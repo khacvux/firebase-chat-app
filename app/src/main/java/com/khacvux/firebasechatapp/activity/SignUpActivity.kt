@@ -54,6 +54,7 @@ class SignUpActivity : AppCompatActivity() {
         btnLogin.setOnClickListener{
             val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
 
@@ -87,12 +88,9 @@ class SignUpActivity : AppCompatActivity() {
                             val intent = Intent(this@SignUpActivity,
                                 UsersActivity::class.java)
                             startActivity(intent)
+                            finish()
                         }
                     }
-                }
-                else {
-                    Toast.makeText(applicationContext, "it: false", Toast.LENGTH_SHORT).show()
-
                 }
             }
 

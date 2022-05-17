@@ -3,6 +3,7 @@
     package="com.khacvux.firebasechatapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirebaseChatApp"
         android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".activity.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.UsersActivity"
             android:exported="false" />
@@ -20,13 +28,9 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.HomeActivity"
-            android:exported="false" />
         <activity
             android:name=".activity.SignUpActivity"
             android:exported="false" />

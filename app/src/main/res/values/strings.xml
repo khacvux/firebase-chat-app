@@ -8,4 +8,9 @@
     <string name="enter_email">Enter Email</string>
     <string name="enter_password">Enter Password</string>
     <string name="enter_confirm_password">Enter Confirm Password</string>
+    <string name="label_messenger">Messenger</string>
+    <string name="label_profile">Profile</string>
+    <string name="btn_save">Save</string>
+    <string name="type_message">Type Message</string>
+
 </resources>
