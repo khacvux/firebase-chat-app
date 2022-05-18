@@ -10,31 +10,33 @@
         android:id="@+id/l1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:background="@drawable/border_bottom">
 
         <ImageView
+            android:id="@+id/imgBack"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/ic_arrow_back"
-            android:id="@+id/imgBack"
             android:layout_marginStart="15dp"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:src="@drawable/ic_arrow_back" />
+
         <TextView
             android:id="@+id/tvUserName"
             android:layout_width="0dp"
-            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:text=""
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:textSize="20sp"
-            />
+            android:layout_weight="2"
+            android:text=""
+            android:textSize="20sp" />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgProfile"
             android:layout_width="0dp"
-            android:layout_weight="0.5"
             android:layout_height="50dp"
+            android:layout_weight="0.5"
             android:padding="5dp"
             android:src="@mipmap/ic_launcher" />
     </LinearLayout>
