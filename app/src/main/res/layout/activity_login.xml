@@ -1,71 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.SignUpActivity"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:gravity="start"
+    android:orientation="vertical"
+    android:background="@drawable/login_background"
+    >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/label_sign_in"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <EditText
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:textSize="40sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:letterSpacing=".01"
+        />
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:padding="12dp"
-        android:background="@color/secondary"
-        android:textColor="@color/black"
+        android:text="Sign in to your account."
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="65dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:letterSpacing=".02"
+        />
+
+    <EditText
+        android:id="@+id/entEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/edittext_background"
         android:hint="@string/enter_email"
-        android:id="@+id/entEmail"/>
+        android:padding="10dp"
+        android:textColor="@color/black"
+        />
+
     <EditText
+        android:id="@+id/entPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="5dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:padding="12dp"
-        android:background="@color/secondary"
-        android:inputType="textPassword"
-        android:textColor="@color/black"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/edittext_background"
         android:hint="@string/enter_password"
-        android:id="@+id/entPassword"/>
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="@color/black" />
 
-    <Button
+    <TextView
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/rounded_btn"
+        android:padding="13dp"
         android:text="@string/btn_sign_in"
-        android:layout_margin="15dp"
-        android:padding="15dp"
         android:textColor="@color/white"
-        android:backgroundTint="@color/primary"
-        />
+        android:textStyle="bold"
+        android:letterSpacing=".1"
+        android:textAlignment="center"/>
 
-    <Button
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_sign_up"
-        android:layout_margin="15dp"
-        android:padding="15dp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/primary"/>
+        android:paddingStart="35dp"
+        android:paddingEnd="35dp">
 
+        <TextView
+            android:id="@+id/textleft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="Don't have any account?"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Sign Up"
+            android:textColor="#3BA5F3"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/textleft"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

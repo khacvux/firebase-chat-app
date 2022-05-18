@@ -26,70 +26,122 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:text="@string/label_profile"
+            android:layout_weight="1"
             android:textSize="18sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginEnd="2dp"
+            android:text="@string/btn_save"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:textSize="16sp"
+            android:visibility="gone"
+        />
     </LinearLayout>
 
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        android:background="@drawable/card_border_y"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/userImage"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/default_avatar"
+            app:civ_border_color="@color/secondary"
+            app:civ_border_width="3dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change profile photo"
+            android:textColor="@color/primary"
+            android:textStyle="bold" />
+
+        <!--            <EditText-->
+        <!--                android:id="@+id/etUserName"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="10dp"-->
+        <!--                android:background="@color/white"-->
+        <!--                android:maxLines="1"-->
+        <!--                android:textAlignment="center"-->
+        <!--                android:textSize="20sp"-->
+        <!--                tools:text="username" />-->
 
 
-        <LinearLayout
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/black"
+            android:visibility="gone" />
+
+    </LinearLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_bottom"
+        android:columnCount="2"
+        android:rowCount="2">
+        <TextView
+            android:text="Name"
+            android:layout_columnWeight="0.05"
+            android:textStyle="bold"
+            />
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_columnWeight="0.9"
+            android:background="@drawable/border_bottom"
+            />
+        <TextView
+            android:text="Email"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_columnWeight="0.05"
+            />
+        <TextView
+            android:id="@+id/emailUser"
+            android:layout_columnWeight="0.9"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border_bottom"
+            />
+    </GridLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="376dp"
+        android:layout_marginTop="60dp"
+        android:padding="20dp"
+        >
+        <TextView
+            android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:background="@drawable/logout_btn"
             android:padding="10dp"
-            android:orientation="vertical">
-
-            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/userImage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:src="@mipmap/ic_launcher"
-                app:civ_border_color="@color/primary"
-                app:civ_border_width="1dp" />
-
-            <EditText
-                android:id="@+id/etUserName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:maxLines="1"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                tools:text="username" />
-
-            <Button
-                android:id="@+id/btnSave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@color/primary"
-                android:layout_marginEnd="2dp"
-                android:visibility="gone"
-                android:text="@string/btn_save"/>
-
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:indeterminateTint="@color/black"
-                android:id="@+id/progressBar"/>
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
+            android:text="Log out"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>

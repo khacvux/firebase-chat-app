@@ -17,6 +17,16 @@
         <activity
             android:name=".activity.ChatActivity"
             android:exported="false" />
+
+        <service android:name=".firebase.FirebaseService"
+            android:permission="com.google.android.c2dm.permission.SEND"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".activity.ProfileActivity"
             android:exported="false" />

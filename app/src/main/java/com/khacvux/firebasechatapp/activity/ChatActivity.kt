@@ -10,19 +10,27 @@ import com.codingwithme.firebasechat.adapter.ChatAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.google.gson.Gson
 import com.khacvux.firebasechatapp.R
+import com.khacvux.firebasechatapp.RetrofitInstance
 import com.khacvux.firebasechatapp.model.Chat
+import com.khacvux.firebasechatapp.model.Notification
+import com.khacvux.firebasechatapp.model.PushNotification
 import com.khacvux.firebasechatapp.model.User
 import kotlinx.android.synthetic.main.activity_chat.*
 import kotlinx.android.synthetic.main.activity_chat.imgBack
 import kotlinx.android.synthetic.main.activity_chat.imgProfile
 import kotlinx.android.synthetic.main.activity_users.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class  ChatActivity : AppCompatActivity() {
 
     var firebaseUser: FirebaseUser? = null
     var reference: DatabaseReference? = null
     var chatList = ArrayList<Chat>()
+    var topic = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +43,7 @@ class  ChatActivity : AppCompatActivity() {
 
         var intent = getIntent()
         var userId = intent.getStringExtra("userId")
+        var userName = intent.getStringExtra("userName")
 
         imgBack.setOnClickListener {
             onBackPressed()
@@ -70,10 +79,11 @@ class  ChatActivity : AppCompatActivity() {
             } else {
                 sendMessage(firebaseUser!!.uid, userId, message)
                 etMessage.setText("")
-//                topic = "/topics/$userId"
-//                PushNotification(NotificationData( userName!!,message),
-//                    topic).also {
-//                    sendNotification(it)
+                topic = "/topics/$userId"
+                PushNotification(Notification( userName!! ,message),
+                    topic).also {
+                        sendNotification(it)
+                }
             }
         }
         readMessage(firebaseUser!!.uid, userId)
@@ -118,4 +128,38 @@ class  ChatActivity : AppCompatActivity() {
         })
     }
 
+    private fun sendNotification(notification:PushNotification) = CoroutineScope(Dispatchers.IO).launch {
+        try {
+            val res = RetrofitInstance.api.postNotification(notification)
+            if(res.isSuccessful){
+                Toast.makeText(this@ChatActivity, "Response ${Gson().toJson(res)}", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this@ChatActivity, res.errorBody().toString(), Toast.LENGTH_SHORT).show()
+            }
+        } catch (e:Exception){
+            Toast.makeText(this@ChatActivity, e.message, Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
