@@ -38,39 +38,43 @@
             android:layout_height="50dp"
             android:layout_weight="0.5"
             android:padding="5dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/default_avatar" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/l1" />
+        android:layout_below="@+id/l1"
+        android:paddingBottom="160px" />
 
     <RelativeLayout
         android:id="@+id/r1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="160px"
         android:layout_alignParentBottom="true"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp">
 
             <EditText
                 android:id="@+id/etMessage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/edittext_background"
                 android:hint="@string/type_message"
                 android:inputType="text"
-                android:padding="12dp"
-                android:background="@drawable/edittext_background"
-                />
+                android:padding="12dp" />
 
             <ImageButton
                 android:id="@+id/btnSendMessage"
@@ -78,8 +82,7 @@
                 android:layout_height="50dp"
                 android:backgroundTint="@color/white"
                 android:padding="15dp"
-                android:src="@drawable/ic_send"
-                />
+                android:src="@drawable/ic_send" />
         </LinearLayout>
 
 
