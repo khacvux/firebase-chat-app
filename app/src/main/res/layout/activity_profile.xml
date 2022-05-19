@@ -95,6 +95,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_bottom"
+        android:padding="15dp"
         android:columnCount="2"
         android:rowCount="2">
         <TextView

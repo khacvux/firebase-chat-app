@@ -1,7 +1,10 @@
 package com.khacvux.firebasechatapp.activity
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +34,7 @@ class  ChatActivity : AppCompatActivity() {
     var reference: DatabaseReference? = null
     var chatList = ArrayList<Chat>()
     var topic = ""
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,6 +105,19 @@ class  ChatActivity : AppCompatActivity() {
         reference!!.child("Chat").push().setValue(hashMap)
     }
 
+    private fun deleteMessage(){
+        val alert = AlertDialog.Builder(this)
+        alert.setTitle("Delete Message")
+        alert.setMessage("Do you want to delete this message?")
+        alert.setPositiveButton("Yes", { dialogInterface: DialogInterface, i: Int ->
+
+        })
+        alert.setNegativeButton("No", { dialogInterface: DialogInterface, i: Int -> })
+        alert.show()
+
+
+    }
+
     fun readMessage(senderId: String, receiverId: String) {
         val databaseReference:DatabaseReference =
             FirebaseDatabase.getInstance().getReference("Chat")
@@ -114,17 +131,16 @@ class  ChatActivity : AppCompatActivity() {
                     if(chat!!.senderId.equals(senderId) && chat!!.receiverId.equals(receiverId) ||
                         chat!!.senderId.equals(receiverId) && chat!!.receiverId.equals(senderId)){
                         chatList.add(chat)
+//                        Log.e("-238942738946789237489", chat.toString())
                     }
                 }
                 val chatAdapter = ChatAdapter(this@ChatActivity, chatList)
-
                 chatRecyclerView.adapter = chatAdapter
             }
 
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
         })
     }
 

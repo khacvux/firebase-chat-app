@@ -62,9 +62,6 @@ class SignUpActivity : AppCompatActivity() {
 
     }
     private fun registerUser(userName: String, email: String, password: String){
-        Log.d("email: ", email)
-        Log.d("password: ", password)
-
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
 
@@ -79,11 +76,11 @@ class SignUpActivity : AppCompatActivity() {
                     val hashMap:HashMap<String, String> = HashMap()
                     hashMap.put("userId", userId)
                     hashMap.put("userName", userName)
+                    hashMap.put("email", email)
                     hashMap.put("profileImage", "")
 
                     databaseReference.setValue(hashMap).addOnCompleteListener(this){
                         if(it.isSuccessful){
-
                             //navigate to home screen
                             val intent = Intent(this@SignUpActivity,
                                 UsersActivity::class.java)

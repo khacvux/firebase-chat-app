@@ -43,12 +43,10 @@ class ChatAdapter(private val context: Context, private val chatList: ArrayList<
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val chat = chatList[position]
         holder.txtUserName.text = chat.message
-        //Glide.with(context).load(user.profileImage).placeholder(R.drawable.profile_image).into(holder.imgUser)
-
+//        Glide.with(context).load(user.profileImage).placeholder(R.drawable.profile_image).into(holder.imgUser)
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
         val txtUserName: TextView = view.findViewById(R.id.tvMessage)
         val imgUser: CircleImageView = view.findViewById(R.id.userImage)
     }

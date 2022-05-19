@@ -30,6 +30,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var storage: FirebaseStorage
     private lateinit var storageRef: StorageReference
+    private lateinit var firebaseAuth: FirebaseAuth
 
 
     private var filePath:Uri? = null
@@ -50,6 +51,7 @@ class ProfileActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val user = snapshot.getValue(User::class.java)
                 etUserName.setText(user!!.userName)
+                emailUser.text = user.email
 
                 if (user.profileImage == ""){
                     userImage.setImageResource(R.drawable.default_avatar)
@@ -75,6 +77,13 @@ class ProfileActivity : AppCompatActivity() {
         btnSave.setOnClickListener{
             uploadImage()
             progressBar.visibility = View.VISIBLE
+        }
+        btnLogout.setOnClickListener{
+            logOut()
+            val intent = Intent(this@ProfileActivity,
+                LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -121,5 +130,10 @@ class ProfileActivity : AppCompatActivity() {
                 }
 
         }
+    }
+
+    private fun logOut() {
+        firebaseAuth = FirebaseAuth.getInstance()
+        firebaseAuth.signOut();
     }
 }
