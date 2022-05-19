@@ -84,10 +84,10 @@ class  ChatActivity : AppCompatActivity() {
                 sendMessage(firebaseUser!!.uid, userId, message)
                 etMessage.setText("")
                 topic = "/topics/$userId"
-                PushNotification(Notification( userName!! ,message),
-                    topic).also {
-                        sendNotification(it)
-                }
+//                PushNotification(Notification( userName!! ,message),
+//                    topic).also {
+//                        sendNotification(it)
+//                }
             }
         }
         readMessage(firebaseUser!!.uid, userId)
